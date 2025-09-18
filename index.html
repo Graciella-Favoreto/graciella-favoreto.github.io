@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graciella dos Santos Favoreto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #667eea;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .institution {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-bottom: 3px solid #eee;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .section-content {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .section-content p {
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            transition: color 0.3s ease;
+        }
+
+        .skill-list li:before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .skill-list li:hover {
+            color: #667eea;
+        }
+
+        .education-item, .experience-item {
+            background: linear-gradient(135deg, #f8f9ff, #e8ecff);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .item-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .item-institution {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .item-date {
+            color: #888;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .item-description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .publications-section {
+            margin-top: 30px;
+        }
+
+        .publication-item {
+            background: linear-gradient(135deg, #fff8f0, #fff0e6);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff9500;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+        }
+
+        .project-section {
+            background: linear-gradient(135deg, #f0fff8, #e6fff0);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #00c851;
+        }
+
+        .project-title {
+            color: #00c851;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .certification-section {
+            background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #007bff;
+        }
+
+        .certification-title {
+            color: #007bff;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .certification-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .certification-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .certification-list li::before {
+            content: "🎓";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .highlight-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .highlight-link:hover {
+            color: #764ba2;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="grac.jpg" alt="Graciella dos Santos Favoreto" class="profile-image">
+            
+            <h1 class="name">Graciella dos Santos Favoreto</h1>
+            
+            <p class="title">Doutoranda | Computer Vision | AI | Data Science</p>
+            
+            <p class="institution">Instituto de Ciências Matemáticas e de Computação (ICMC) - USP</p>
+            
+            <div class="social-links">
+                <a href="mailto:graciellafavoreto@usp.br" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/Graciella-Favoreto" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="http://lattes.cnpq.br/7015367458649160" class="social-link" title="Lattes">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="https://br.linkedin.com/in/graciella-dos-santos-favoreto" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">Sobre</h2>
+                <div class="section-content">
+                    <p>
+                        Doutoranda em Ciências da Computação e Matemática Computacional no ICMC-USP, graduada em Informática Biomédica pela FMRP-USP. Pesquiso Inteligência Artificial aplicada à saúde, com foco em deep learning para ferramentas de auxílio diagnóstico em imagens médicas.
+                    </p>
+                    <p>
+                        Sou membro do Medical Artificial Intelligence Laboratory (MAInLab) e do Grupo de Bases de Dados e Imagens (GBDI). Aspirante à carreira acadêmica como professora, com interesse em IA explicável (XAI), visão computacional e ciência de dados na saúde.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Áreas de Pesquisa</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Inteligência Artificial</h4>
+                        <ul class="skill-list">
+                            <li>Deep Learning</li>
+                            <li>Computer Vision</li>
+                            <li>IA Explicável (XAI)</li>
+                            <li>Machine Learning</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Aplicações Médicas</h4>
+                        <ul class="skill-list">
+                            <li>Diagnóstico por Imagem</li>
+                            <li>Segmentação de Imagens</li>
+                            <li>Radiografias Torácicas</li>
+                            <li>Ressonância Magnética</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tecnologias</h4>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>Mask R-CNN</li>
+                            <li>OpenCV</li>
+                            <li>TensorFlow/PyTorch</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Desenvolvimento</h4>
+                        <ul class="skill-list">
+                            <li>Flutter/Java</li>
+                            <li>Node.js/TypeScript</li>
+                            <li>PHP/HTML/CSS</li>
+                            <li>PostgreSQL/MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Educação</h2>
+                
+                <div class="education-item">
+                    <h3 class="item-title">Doutorado em Ciências da Computação e Matemática Computacional</h3>
+                    <p class="item-institution">Instituto de Ciências Matemáticas e de Computação (ICMC) - USP</p>
+                    <p class="item-date">2024 - atual</p>
+                    <p class="item-description">
+                        <strong>Título:</strong> Integração de ferramentas de aprendizado profundo para auxílio diagnóstico em radiografias torácicas utilizadas no ambiente clínico<br>
+                        <strong>Orientadora:</strong> Profa. Dra. Agma Juci Machado Traina<br>
+                        <strong>Coorientador:</strong> Dr. Marcel Koenigkam Santos<br>
+                        <strong>Bolsa:</strong> CAPES
+                    </p>
+                </div>
+
+                <div class="education-item">
+                    <h3 class="item-title">Graduação em Informática Biomédica</h3>
+                    <p class="item-institution">Faculdade de Medicina de Ribeirão Preto (FMRP) - USP</p>
+                    <p class="item-date">2020 - 2024</p>
+                    <p class="item-description">
+                        <strong>Trabalho de Conclusão:</strong> Segmentação automatizada de corpos vertebrais lombares usando Mask R-CNN<br>
+                        <strong>Orientador:</strong> Prof. Dr. Paulo Mazzoncini de Azevedo Marques
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experiência Profissional</h2>
+                
+                <div class="experience-item">
+                    <h3 class="item-title">Desenvolvedora Mobile Fullstack</h3>
+                    <p class="item-institution">Fairy Code Tecnologia LTDA</p>
+                    <p class="item-date">fev. 2024 - abr. 2024</p>
+                    <p class="item-description">
+                        Desenvolvimento de aplicação móvel utilizando Flutter para o frontend, integrada com APIs de backend em NodeJS com TypeScript. Utilização do Prisma para interações com banco de dados PostgreSQL, gerenciado através do Docker.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3 class="item-title">Desenvolvedora Fullstack</h3>
+                    <p class="item-institution">RCDNC Participações EIRELI</p>
+                    <p class="item-date">mar. 2022 - jan. 2024</p>
+                    <p class="item-description">
+                        Desenvolvimento e manutenção de plataforma web usando tecnologias como WordPress, PHP, HTML, CSS, JS e framework Yii2. Desenvolvimento mobile com Java, Android Studio e CakePHP.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3 class="item-title">Estagiária de T.I.</h3>
+                    <p class="item-institution">Seção Técnica de Informática - FMRP/USP</p>
+                    <p class="item-date">mar. 2020 - mar. 2022</p>
+                    <p class="item-description">
+                        Desenvolvimento WordPress com Elementor, treinamento de funcionários, criação de conteúdo de informática, manutenção de hardware e suporte técnico.
+                    </p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Publicações & Projetos</h2>
+                
+                <div class="publications-section">
+                    <div class="publication-item">
+                        <strong>2023.</strong> FAVORETO, G. S.; CORDEIRO, S. S.; NOGUEIRA-BARBOSA, M. H.; AZEVEDO-MARQUES, P. M. Segmentação automatizada de corpos vertebrais lombares em exames de Ressonância Magnética usando Mask R-CNN. <em>XI Simpósio de Instrumentação e Imagens Médicas</em>. Ribeirão Preto.
+                    </div>
+                    
+                    <div class="publication-item">
+                        <strong>2017.</strong> FAVORETO, G. S.; ROCHA, P. R. H.; BARBIERI, M. A.; BETTIOL, H. O efeito do uso de cigarros na gestação no perímetro cefálico do recém-nascido: um estudo de Coorte. <em>VIII Encontro de Biologia Comparada</em>. Ribeirão Preto. <strong style="color: #ff9500;">Menção Honrosa</strong>.
+                    </div>
+                </div>
+                    
+                <div class="project-section">
+                    <h4 class="project-title">Projetos de Pesquisa</h4>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <strong>Segmentação automatizada de corpos vertebrais lombares usando Mask R-CNN (2022-2023)</strong><br>
+                        <span style="color: #666;">Desenvolvimento de modelo para segmentação de vértebras L1-L5 em imagens de ressonância magnética de 63 pacientes pós-menopáusicas. Resultados obtidos: mAP de 0.92 no teste e 0.98 na validação.</span>
+                    </div>
+                    
+                    <div>
+                        <strong>Avaliação dos fatores fundamentais para o desenvolvimento no início da vida (2016-2017)</strong><br>
+                        <span style="color: #666;">Análise estatística do impacto do tabagismo gestacional na microcefalia em estudo de coorte com 7.074 participantes. Bolsa CNPq de Iniciação Científica Junior.</span>
+                    </div>
+                </div>
+                
+                <div class="certification-section">
+                    <h4 class="certification-title">Certificações Recentes</h4>
+                    <ul class="certification-list">
+                        <li><strong>Deep Learning Applications for Computer Vision</strong> - University of Colorado Boulder (2025)</li>
+                        <li><strong>Developing Explainable AI (XAI)</strong> - Duke University (2025)</li>
+                        <li><strong>FastAPI - Websites Modernos e Assíncronos com Python</strong> - Udemy (2025)</li>
+                        <li><strong>VII Escola Avançada em Big Data Analysis</strong> - ICMC-USP (2023)</li>
+                        <li><strong>Santander Startup USP</strong> - SUPERA (2022)</li>
+                    </ul>
+                </div>
+                
+                <p style="margin-top: 30px; text-align: center;">
+                    <a href="http://lattes.cnpq.br/7015367458649160" class="highlight-link">
+                        Ver currículo completo no Lattes →
+                    </a>
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
